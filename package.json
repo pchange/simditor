@@ -21,7 +21,7 @@
     "jquery": "~2.1.4",
     "simple-hotkeys": "github:pchange/simple-hotkeys#0ae78e4e3d326af65052bb2de009b6d61b450b51",
     "simple-module": "~2.0.6",
-    "simple-uploader": "github:pchange/simple-uploader#e6e2bf82e376158703953c36dac81bb6cc02ab95",
+    "simple-uploader": "github:pchange/simple-uploader#e6e2bf82e376158703953c36dac81bb6cc02ab95"
   },
   "devDependencies": {
     "express": "~3.3.4",
