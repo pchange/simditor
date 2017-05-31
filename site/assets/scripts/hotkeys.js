@@ -12,6 +12,7 @@
   } else {
     root.simple = root.simple || {};
     root.simple['hotkeys'] = factory(jQuery,SimpleModule);
+    root['simple.hotkeys'] = factory(jQuery,SimpleModule);
   }
 }(this, function ($, SimpleModule) {
 
