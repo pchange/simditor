@@ -553,11 +553,15 @@ class ImagePopover extends Popover
       return unless img
 
       if @active
+        ### 这是旧的
         @width = img.width
         @height = img.height
 
         @widthEl.val @width
         @heightEl.val @height
+        ###
+        # 下面这行是新的
+        @widthResponse.attr('checked', true)
 
       if /^data:image/.test(src)
         blob = @editor.util.dataURLtoBlob src
