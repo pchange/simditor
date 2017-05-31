@@ -13,21 +13,21 @@
       toolbar: toolbar,
       pasteImage: true,
       defaultImage: 'assets/images/image.png',
-      // upload: location.search === '?upload' ? {
-      //   url: '/upload'
-      // } : false
+      upload: location.search === '?upload' ? {
+        url: '/upload'
+      } : false,
       upload: {
         url: 'https:' === location.protocol ? 'https://up.qbox.me/' : 'http://up.qiniu.com',
         connectionCount: 3,
         leaveConfirm: '还在上传图片，确定要离开吗?',
-        buildResultPath: (result) => {
-          window.console.log('buildResultPath result', result);
+        buildResultPath: function() {
+          console.log('buildResultPath result', retust);
           return '';
-        }
-        params: () => {
-          window.console.log('params');
-          return {};
         },
+        params: function() {
+          console.log('params');
+          return {};
+        }
       }
     });
     $preview = $('#preview');

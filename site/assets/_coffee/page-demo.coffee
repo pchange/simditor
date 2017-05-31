@@ -12,6 +12,17 @@ $ ->
     pasteImage: true
     defaultImage: 'assets/images/image.png'
     upload: if location.search == '?upload' then {url: '/upload'} else false
+    upload: {
+      url: if 'https:' is location.protocol then 'https://up.qbox.me/' else 'http://up.qiniu.com'
+      connectionCount: 3
+      leaveConfirm: '还在上传图片，确定要离开吗?'
+      buildResultPath: () ->
+        console.log 'buildResultPath result', retust
+        return ''
+      params: () ->
+        console.log 'params'
+        return {}
+    }
 
   $preview = $('#preview')
   if $preview.length > 0
