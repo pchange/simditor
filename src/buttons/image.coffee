@@ -187,6 +187,8 @@ class ImageButton extends Button
         msg = result.msg || @_t('uploadFailed')
         alert msg
         img_path = @defaultImage
+      else if @editor.opts.upload.buildResultPath
+        img_path = @editor.opts.upload.buildResultPath(result)
       else
         img_path = result.file_path
 
