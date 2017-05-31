@@ -18,11 +18,10 @@
   "main": "lib/simditor.js",
   "homepage": "http://simditor.tower.im",
   "dependencies": {
-    "grunt-parallel": "^0.5.1",
     "jquery": "~2.1.4",
     "simple-hotkeys": "~1.0.3",
     "simple-module": "~2.0.6",
-    "simple-uploader": "~3.0.0"
+    "simple-uploader": "~2.0.7"
   },
   "devDependencies": {
     "express": "~3.3.4",
@@ -39,6 +38,7 @@
     "grunt-curl": "2.1.x",
     "grunt-express": "1.4.0",
     "grunt-jekyll": "0.x",
+    "grunt-parallel": "^0.5.1",
     "grunt-umd": "2.3.x"
   }
 }
