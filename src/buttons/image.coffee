@@ -397,6 +397,8 @@ class ImagePopover extends Popover
     @widthEl = @el.find '#image-width'
     @heightEl = @el.find '#image-height'
     @altEl = @el.find '#image-alt'
+    @widthResponse = @el.find '#imageSize-response'
+    @widthOrigin = @el.find '#imageSize-origin'
 
     @srcEl.on 'keydown', (e) =>
       return unless e.which == 13 and !@target.hasClass('uploading')
@@ -409,6 +411,10 @@ class ImagePopover extends Popover
       @_loadImage @srcEl.val()
 
     @el.find('.image-size').on 'blur', (e) =>
+      @_resizeImg $(e.currentTarget)
+      @el.data('popover').refresh()
+
+    @el.find('[name="imageSize"]').on 'change', (e) =>
       @_resizeImg $(e.currentTarget)
       @el.data('popover').refresh()
 
