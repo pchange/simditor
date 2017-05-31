@@ -15,22 +15,21 @@
       defaultImage: 'assets/images/image.png',
       // upload: location.search === '?upload' ? {
       //   url: '/upload'
-      // } : false,
+      // } : false
       upload: {
         url: 'https:' === location.protocol ? 'https://up.qbox.me/' : 'http://up.qiniu.com',
         connectionCount: 3,
         leaveConfirm: '还在上传图片，确定要离开吗?',
-        buildResultPath: () => {
-          window.console.log('buildResultPath result', retusl);
+        buildResultPath: (result) => {
+          window.console.log('buildResultPath result', result);
           return '';
-        },
+        }
         params: () => {
           window.console.log('params');
           return {};
         },
       }
     });
-    window.editor = editor;
     $preview = $('#preview');
     if ($preview.length > 0) {
       return editor.on('valuechanged', function(e) {
