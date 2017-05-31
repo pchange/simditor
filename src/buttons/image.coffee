@@ -489,6 +489,7 @@ class ImagePopover extends Popover
       createInput()
 
   _resizeImg: (inputEl, onlySetVal = false) ->
+    ### 这是旧的
     value = inputEl.val() * 1
     return unless @target and ($.isNumeric(value) or value < 0)
 
@@ -506,6 +507,22 @@ class ImagePopover extends Popover
         width: width
         height: height
       @editor.trigger 'valuechanged'
+    ###
+
+    value = inputEl.val()
+    return unless @target
+    if 'origin' is value
+      @target.css
+        width: 'auto'
+      @target.attr
+        width: 'auto'
+    else
+      @target.css
+        width: '100%'
+      @target.attr
+        width: '100%'
+    @editor.trigger 'valuechanged'
+    return
 
   _restoreImg: ->
     size = @target.data('image-size')?.split(",") || [@width, @height]
