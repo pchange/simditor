@@ -525,6 +525,7 @@ class ImagePopover extends Popover
     return
 
   _restoreImg: ->
+    ### 这是旧的
     size = @target.data('image-size')?.split(",") || [@width, @height]
     @target.attr
       width: size[0] * 1
@@ -532,6 +533,13 @@ class ImagePopover extends Popover
     @widthEl.val(size[0])
     @heightEl.val(size[1])
 
+    @editor.trigger 'valuechanged'
+    ###
+
+    @target.attr
+      width: 'auto'
+    @target.css
+      width: 'auto'
     @editor.trigger 'valuechanged'
 
   _loadImage: (src, callback) ->
