@@ -282,7 +282,7 @@ class ImageButton extends Button
       $img.attr
         src: src,
         width: width,
-        height: height,
+        # height: height,
         'data-image-size': width + ',' + height
       .removeClass('loading')
 
