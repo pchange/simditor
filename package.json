@@ -22,7 +22,7 @@
     "jquery": "~2.1.4",
     "simple-hotkeys": "~1.0.3",
     "simple-module": "~2.0.6",
-    "simple-uploader": "~2.0.7"
+    "simple-uploader": "~3.0.0"
   },
   "devDependencies": {
     "express": "~3.3.4",

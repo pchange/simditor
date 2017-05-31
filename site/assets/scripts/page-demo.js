@@ -30,6 +30,7 @@
         },
       }
     });
+    window.editor = editor;
     $preview = $('#preview');
     if ($preview.length > 0) {
       return editor.on('valuechanged', function(e) {

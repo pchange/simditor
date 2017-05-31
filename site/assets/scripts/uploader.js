@@ -12,7 +12,6 @@
   } else {
     root.simple = root.simple || {};
     root.simple['uploader'] = factory(jQuery,SimpleModule);
-    root['simple.uploader'] = factory(jQuery,SimpleModule);
   }
 }(this, function ($, SimpleModule) {
 
