@@ -2,7 +2,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
     define('simple-hotkeys', ["jquery","simple-module"], function ($, SimpleModule) {
-      return (root['hotkeys'] = factory($, SimpleModule));
+      return (root['simpleHotkeys'] = factory($, SimpleModule));
     });
   } else if (typeof exports === 'object') {
     // Node. Does not work with strict CommonJS, but
@@ -11,12 +11,11 @@
     module.exports = factory(require("jquery"),require("simple-module"));
   } else {
     root.simple = root.simple || {};
-    root.simple['hotkeys'] = factory(jQuery,SimpleModule);
-    root['simple.hotkeys'] = factory(jQuery,SimpleModule);
+    root['simpleHotkeys'] = factory(root["jQuery"],root["SimpleModule"]);
   }
 }(this, function ($, SimpleModule) {
 
-var Hotkeys, hotkeys,
+var Hotkeys, simpleHotkeys,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
@@ -232,11 +231,11 @@ Hotkeys = (function(superClass) {
 
 })(SimpleModule);
 
-hotkeys = function(opts) {
+simpleHotkeys = function(opts) {
   return new Hotkeys(opts);
 };
 
-return hotkeys;
+return simpleHotkeys;
 
 }));
 

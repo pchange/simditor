@@ -21,7 +21,17 @@ $ ->
         return ''
       params: () ->
         console.log 'params'
-        return {}
+        request = new XMLHttpRequest()
+        request.open('GET', 'https://api.github.com', false)
+        request.send(null)
+        window.r1 = request;
+
+        if request.status is 200
+          console.log(request.responseText)
+        console.log 'params sync request'
+        return {
+          a: request.responseText,
+        }
     }
 
   $preview = $('#preview')

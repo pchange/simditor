@@ -2,7 +2,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
     define('simple-uploader', ["jquery","simple-module"], function ($, SimpleModule) {
-      return (root['uploader'] = factory($, SimpleModule));
+      return (root['simpleUploader'] = factory($, SimpleModule));
     });
   } else if (typeof exports === 'object') {
     // Node. Does not work with strict CommonJS, but
@@ -11,11 +11,11 @@
     module.exports = factory(require("jquery"),require("simple-module"));
   } else {
     root.simple = root.simple || {};
-    root.simple['uploader'] = factory(jQuery,SimpleModule);
+    root['simpleUploader'] = factory(root["jQuery"],root["SimpleModule"]);
   }
 }(this, function ($, SimpleModule) {
 
-var Uploader, uploader,
+var Uploader, simpleUploader,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
@@ -108,15 +108,21 @@ Uploader = (function(superClass) {
 
   Uploader.prototype.getFile = function(fileObj) {
     var name, ref, ref1;
+    window.console.log('getFile entry');
     if (fileObj instanceof window.File || fileObj instanceof window.Blob) {
       name = (ref = fileObj.fileName) != null ? ref : fileObj.name;
     } else {
       return null;
     }
+    window.console.log('getFile run');
+    if ($.isFunction(this.opts.params)) {
+      window.console.log('getFile @opts.params()');
+      this.opts.params();
+    }
     return {
       id: this.generateId(),
       url: this.opts.url,
-      params: this.opts.params,
+      params: $.isFunction(this.opts.params) ? this.opts.params() : this.opts.params,
       fileKey: this.opts.fileKey,
       name: name,
       size: (ref1 = fileObj.fileSize) != null ? ref1 : fileObj.size,
@@ -252,10 +258,10 @@ Uploader = (function(superClass) {
 
 })(SimpleModule);
 
-uploader = function(opts) {
+simpleUploader = function(opts) {
   return new Uploader(opts);
 };
 
-return uploader;
+return simpleUploader;
 
 }));
