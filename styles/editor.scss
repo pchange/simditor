@@ -55,6 +55,7 @@ $simditor-button-width: 46px;
       top: 0;
       left: 0;
       z-index: 2;
+      display: none!important;
 
       .progress {
         width: 100%;
@@ -111,7 +112,44 @@ $simditor-button-width: 46px;
 
     img {
       cursor: pointer;
-
+      &.uploading {
+        font-size: 0px;
+        padding-bottom: 4px;
+        background: repeating-linear-gradient(to right, #c6e8ef 0%, #3da0dc 50%, #c6e8ef 100%);
+        @keyframes SimditorImgUploadingAnimate {
+          10% {
+            background: repeating-linear-gradient(to right, #c6e8ef 10%, #3da0dc 60%, #c6e8ef 110%);
+          }
+          20% {
+            background: repeating-linear-gradient(to right, #c6e8ef 20%, #3da0dc 70%, #c6e8ef 120%);
+          }
+          30% {
+            background: repeating-linear-gradient(to right, #c6e8ef 30%, #3da0dc 80%, #c6e8ef 130%);
+          }
+          40% {
+            background: repeating-linear-gradient(to right, #c6e8ef 40%, #3da0dc 90%, #c6e8ef 140%);
+          }
+          50% {
+            background: repeating-linear-gradient(to right, #c6e8ef 50%, #3da0dc 100%, #c6e8ef 150%);
+          }
+          60% {
+            background: repeating-linear-gradient(to right, #c6e8ef 60%, #3da0dc 110%, #c6e8ef 160%);
+          }
+          70% {
+            background: repeating-linear-gradient(to right, #c6e8ef 70%, #3da0dc 120%, #c6e8ef 170%);
+          }
+          80% {
+            background: repeating-linear-gradient(to right, #c6e8ef 80%, #3da0dc 130%, #c6e8ef 180%);
+          }
+          90% {
+            background: repeating-linear-gradient(to right, #c6e8ef 90%, #3da0dc 140%, #c6e8ef 190%);
+          }
+          100% {
+            background: repeating-linear-gradient(to right, #c6e8ef 100%, #3da0dc 150%, #c6e8ef 200%);
+          }
+        }
+        animation: 1s SimditorImgUploadingAnimate ease infinite;
+      }
       &.selected {
         box-shadow: 0 0 0 4px #cccccc;
       }
@@ -465,6 +503,9 @@ $simditor-button-width: 46px;
       label {
         display: inline-block;
         margin: 0 5px 0 0;
+        &.auto {
+          width: auto!important;
+        }
       }
 
       input[type=text] {
