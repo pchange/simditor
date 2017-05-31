@@ -360,10 +360,13 @@ class ImagePopover extends Popover
           <span class="simditor-icon simditor-icon-upload"></span>
         </a>
       </div>
+      <!--
       <div class='settings-field'>
         <label>#{ @_t 'imageAlt' }</label>
         <input class="image-alt" id="image-alt" type="text" tabindex="1" />
       </div>
+      -->
+      <!--
       <div class="settings-field">
         <label>#{ @_t 'imageSize' }</label>
         <input class="image-size" id="image-width" type="text" tabindex="2" />
@@ -373,6 +376,18 @@ class ImagePopover extends Popover
           title="#{ @_t 'restoreImageSize' }" tabindex="-1">
           <span class="simditor-icon simditor-icon-undo"></span>
         </a>
+      </div>
+      -->
+      <div class="settings-field">
+        <label>#{ @_t 'imageSize' }</label>
+        <label class="auto">
+          <input type="radio" id="imageSize-response" value="response" name="imageSize">
+          <span>#{ @_t 'imageResponse' }</span>
+        </label>
+        <label class="auto">
+          <input type="radio" id="imageSize-origin" value="origin" name="imageSize">
+          <span>#{ @_t 'imageOrigin' }</span>
+        </label>
       </div>
     </div>
     """
