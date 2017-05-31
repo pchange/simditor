@@ -276,8 +276,8 @@ class ImageButton extends Button
     img.onload = =>
       return if !$img.hasClass('loading') and !$img.hasClass('uploading')
 
-      # width = img.width
-      # height = img.height
+      width = img.width
+      height = img.height
 
       $img.attr
         src: src,

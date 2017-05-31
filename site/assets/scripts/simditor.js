@@ -4537,9 +4537,12 @@ ImageButton = (function(superClass) {
     img = new Image();
     img.onload = (function(_this) {
       return function() {
+        var height, width;
         if (!$img.hasClass('loading') && !$img.hasClass('uploading')) {
           return;
         }
+        width = img.width;
+        height = img.height;
         $img.attr({
           src: src,
           'data-image-size': width + ',' + height
