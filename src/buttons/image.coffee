@@ -574,6 +574,7 @@ class ImagePopover extends Popover
 
       callback(img) if callback
 
+  # 旧的 show。会被覆盖。
   show: (args...) ->
     super args...
     $img = @target
@@ -590,6 +591,24 @@ class ImagePopover extends Popover
       @widthEl.val @width
       @heightEl.val @height
       @altEl.val @alt
+
+  # 新的的 show。
+  show: (args...) ->
+    super args...
+    $img = @target
+    @width = $img.attr('width') || $img.width()
+    @alt = $img.attr 'alt'
+    if $img.hasClass 'uploading'
+      @srcEl.val @_t('uploading')
+        .prop 'disabled', true
+        @widthResponse.attr('checked', true)
+    else
+      @srcEl.val $img.attr('src')
+        .prop 'disabled', false
+      if (''+ @width).endsWith('%')
+        @widthResponse.attr('checked', true)
+      else
+        @widthOrigin.attr('checked', true)
 
 
 Simditor.Toolbar.addButton ImageButton
