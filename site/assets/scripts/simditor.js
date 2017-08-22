@@ -4653,7 +4653,7 @@ ImagePopover = (function(superClass) {
         return _this.el.data('popover').refresh();
       };
     })(this));
-    this.el.find('[name="imageSize"]').on('change', (function(_this) {
+    this.el.find('[name^=imageSize]').on('change', (function(_this) {
       return function(e) {
         _this._resizeImg($(e.currentTarget));
         return _this.el.data('popover').refresh();

@@ -415,7 +415,7 @@ class ImagePopover extends Popover
       @_resizeImg $(e.currentTarget)
       @el.data('popover').refresh()
 
-    @el.find('[name="imageSize"]').on 'change', (e) =>
+    @el.find('[name^=imageSize]').on 'change', (e) =>
       @_resizeImg $(e.currentTarget)
       @el.data('popover').refresh()
 
