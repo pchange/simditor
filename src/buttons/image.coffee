@@ -350,6 +350,7 @@ class ImagePopover extends Popover
     left: -4
 
   render: ->
+    random = '' + Math.random()
     tpl = """
     <div class="link-settings">
       <div class="settings-field">
@@ -381,11 +382,11 @@ class ImagePopover extends Popover
       <div class="settings-field">
         <label>#{ @_t 'imageSize' }</label>
         <label class="auto">
-          <input type="radio" id="imageSize-response" value="response" name="imageSize">
+          <input type="radio" id="imageSize-response" value="response" name="imageSize_#{random}">
           <span>#{ @_t 'imageResponse' }</span>
         </label>
         <label class="auto">
-          <input type="radio" id="imageSize-origin" value="origin" name="imageSize">
+          <input type="radio" id="imageSize-origin" value="origin" name="imageSize_#{random}">
           <span>#{ @_t 'imageOrigin' }</span>
         </label>
       </div>
@@ -562,6 +563,7 @@ class ImagePopover extends Popover
         ###
         # 下面这行是新的
         @widthResponse.attr('checked', true)
+        @widthResponse[0]?.checked = true
 
       if /^data:image/.test(src)
         blob = @editor.util.dataURLtoBlob src
@@ -602,13 +604,16 @@ class ImagePopover extends Popover
       @srcEl.val @_t('uploading')
         .prop 'disabled', true
         @widthResponse.attr('checked', true)
+        @widthResponse[0]?.checked = true
     else
       @srcEl.val $img.attr('src')
         .prop 'disabled', false
       if (''+ @width).endsWith('%')
         @widthResponse.attr('checked', true)
+        @widthResponse[0]?.checked = true
       else
         @widthOrigin.attr('checked', true)
+        @widthOrigin[0]?.checked = true
 
 
 Simditor.Toolbar.addButton ImageButton
